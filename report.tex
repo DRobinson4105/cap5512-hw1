@@ -1,0 +1,184 @@
+% chktex-file 9
+% chktex-file 10
+% chktex-file 12
+% chktex-file 17
+% chktex-file 24
+% chktex-file 44
+
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage[pagebackref=true,breaklinks=true,letterpaper=true,colorlinks,bookmarks=false]{hyperref}
+\usepackage[a4paper, top=0.5in, bottom=0.75in, left=0.5in, right=0.5in]{geometry}\usepackage{titling}
+\usepackage{float}
+
+\setlength{\droptitle}{-2.75em}
+
+\title{Homework 1}
+\author{David Robinson, Diego Pedroza, Hunter Norman}
+\date{}
+\setlength{\parindent}{0pt}
+
+\setlength{\topskip}{0pt}
+
+\begin{document}
+
+\maketitle
+\vspace{-3.5em}
+
+\section*{Initial Experiment}
+
+We start with a genetic algorithm that solves the OneMax problem, with a population size of 100, randomly generated initial population, genome length of 200 binary bits, one-point crossover, crossover rate of 0.8, mutation rate of 0.005, and a fitness proportional selection, running up to 100 generations.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/part1.png}
+    \caption{Best and mean fitness with their 95\% confidence intervals at each generation, averaged over 50 runs.}
+    \label{fig:part1}
+\end{figure}
+
+The average best fitness at the end of each run was 132.68, with a standard deviation of 5.12 and confidence interval of $[131.26, 134.10]$. There were no runs where an optimum individual was found.
+
+\section*{Comparison of Population Sizes}
+
+We maintain the initial parameters, but test population sizes of 50, 200, and 400.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part2a.png}
+    \label{fig:population_size_50}
+  \end{subfigure}
+  \hspace{0.1em}
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part2b.png}
+    \label{fig:population_size_200}
+  \end{subfigure}
+  \hspace{0.1em}
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part2c.png}
+    \label{fig:population_size_400}
+  \end{subfigure}
+  \vspace{-1.5em}
+  \caption{Comparison of best and mean fitness at each generation when testing different population sizes.}
+  \label{fig:population_size_experiments}
+\end{figure}
+
+\input{tables/table1.tex}
+
+\textbf{Evaluation:} Both Figure~\ref{fig:population_size_experiments} and Table~\ref{tab:population_size_table} show that GA performance improves as population size increases.
+
+\section*{Comparison of Mutation Rates}
+
+We maintain the initial parameters, but test mutation rates of 0.0001, 0.001, and 0.01.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part3a.png}
+    \label{fig:mutation_rate_0_0001}
+  \end{subfigure}
+  \hspace{0.1em}
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part3b.png}
+    \label{fig:mutation_rate_0_001}
+  \end{subfigure}
+  \hspace{0.1em}
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part3c.png}
+    \label{fig:mutation_rate_0_01}
+  \end{subfigure}
+  \vspace{-1.5em}
+  \caption{Comparison of best and mean fitness at each generation when testing different mutation rates.}
+  \label{fig:mutation_rate_experiments}
+\end{figure}
+
+\input{tables/table2.tex}
+
+\textbf{Evaluation:} Both Figure~\ref{fig:mutation_rate_experiments} and Table~\ref{tab:mutation_rate_table} show that GA performance is highest around a mutation rate of 0.001.
+
+\section*{Comparison of Crossover Rates}
+
+We maintain the initial parameters, but test crossover rates of 0.4, 0.6, and 1.0.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part4a.png}
+    \label{fig:crossover_rate_0_4}
+  \end{subfigure}
+  \hspace{0.1em}
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part4b.png}
+    \label{fig:crossover_rate_0_6}
+  \end{subfigure}
+  \hspace{0.1em}
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part4c.png}
+    \label{fig:crossover_rate_1_0}
+  \end{subfigure}
+  \vspace{-1.5em}
+  \caption{Comparison of best and mean fitness at each generation when testing different crossover rates.}
+  \label{fig:crossover_rate_experiments}
+\end{figure}
+
+\input{tables/table3.tex}
+
+\textbf{Evaluation:} Both Figure~\ref{fig:crossover_rate_experiments} and Table~\ref{tab:crossover_rate_table} show that GA performance improves as crossover rate increases.
+
+\section*{Comparison of Selection Methods}
+
+We maintain the initial parameters, but test tournament selection, rank selection, and random selection.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part5a.png}
+    \label{fig:selection_method_tournament}
+  \end{subfigure}
+  \hspace{0.1em}
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part5b.png}
+    \label{fig:selection_method_rank}
+  \end{subfigure}
+  \hspace{0.1em}
+  \begin{subfigure}{0.25\textwidth}
+    \includegraphics[width=\textwidth]{figures/part5c.png}
+    \label{fig:selection_method_random}
+  \end{subfigure}
+  \vspace{-1.5em}
+  \caption{Comparison of best and mean fitness at each generation when testing different selection methods.}
+  \label{fig:selection_method_experiments}
+\end{figure}
+
+\input{tables/table4.tex}
+
+\textbf{Evaluation:} Both Figure~\ref{fig:selection_method_experiments} and Table~\ref{tab:selection_method_table} show that GA performance is highest with tournament selection, followed by rank selection, fitness proportional selection, and random selection, in that order. Also, GA performance seems to be heavily dependent on the selection method.
+
+\section*{Best Performance}
+
+The tournament selection with initial parameters already found an optimum individual, so the goal is to reach this optimum individual in an earlier generation, the optimum generation.
+\vspace{0.5em}
+
+When using the best individual best parameters found in the earlier comparisons, the lower mutation rate actually decreased the performance as there was less variation between individuals and the GA could not take the full advantage of tournament selection. The optimum generation increased as crossover rate and population size increased. However, increasing population size also proportionally increased runtime. Also, as the crossover rate increased, the GA became more deterministic, resulting in most following experiments having a standard deviation of 0.
+\vspace{0.5em}
+
+\input{tables/table5.tex}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/part6.png}
+    \caption{Best and mean fitness with their 95\% confidence intervals at each generation, averaged over 50 runs, using the best found parameters (population size of 400, mutation rate of 0.005, crossover rate of 1.0, and tournament selection with a tournsize of 100).}
+    \label{fig:part6}
+\end{figure}
+
+Using a population size of 400, mutation rate of 0.005, crossover rate of 1.0, and tournament selection with a tournsize of 100, the average best fitness at the end of each run was 200.0, with a standard deviation of 0.0 and confidence interval of $[200.0, 200.0]$. The average first generation with an optimum individual was 37.30.
+
+\end{document}

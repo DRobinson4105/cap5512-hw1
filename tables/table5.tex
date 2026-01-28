@@ -1,0 +1,20 @@
+% chktex-file 24
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{ccccc}
+\toprule
+Population Size & Mutation Rate & Crossover Rate & Selection Method & Generation of First Optimum\\
+\midrule
+100 & 0.005 & 0.8 & Tournament (tournsize=3) & 90.47 \\
+200 & 0.005 & 0.8 & Tournament (tournsize=3) & 73.90 \\
+200 & 0.005 & 1.0 & Tournament (tournsize=3) & 55.72 \\
+200 & 0.005 & 1.0 & Tournament (tournsize=8) & 44.42 \\
+200 & 0.005 & 1.0 & Tournament (tournsize=100) & 37.30 \\
+400 & 0.005 & 1.0 & Tournament (tournsize=100) & 29.50 \\
+\bottomrule
+\end{tabular}
+\caption{Generation of first optimum between runs with different parameters (population size, mutation rate, crossover rate, selection method), where tournsize is the number of individuals being considered in each tournament.}
+\label{tab:best_table}
+\end{table}

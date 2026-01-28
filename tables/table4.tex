@@ -1,0 +1,18 @@
+% chktex-file 24
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{ccccc}
+\toprule
+Selection Method & Average Best Fitness & Standard Deviation & Confidence Interval & Generation of First Optimum \\
+\midrule
+Fitness Proportional & 132.68 & 5.12 & $[131.26, 134.10]$ & N/A \\
+Tournament (tournsize=3) & 199.66 & 0.48 & $[199.53, 199.79]$ & 90.47 \\ 
+Rank & 193.34 & 1.60 & $[192.90, 193.78]$ & N/A \\ 
+Random & 114.3 & 4.33 & $[113.10, 115.50]$ & N/A \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of average best fitness over 50 runs with its standard deviation and 95\% confidence interval between experiments with different selection methods, where tournsize is the number of individuals being considered in each tournament. If an optimum indiviudal was found, the average generation of the first optimum individual found was reported. Otherwise, N/A was reported.}
+\label{tab:selection_method_table}
+\end{table}
